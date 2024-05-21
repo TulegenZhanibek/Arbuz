@@ -15,15 +15,10 @@ import com.example.arbuz.adapter.PhotosAdapter
 import com.example.arbuz.model.PhotosViewModel
 
 class PhotosFragment : Fragment() {
-
     private val viewModel: PhotosViewModel by viewModels()
     private lateinit var recyclerView: RecyclerView
     private lateinit var photosAdapter: PhotosAdapter
 
-    private fun navigateToCartFragment() {
-        // Use the NavController to navigate to CartFragment
-        findNavController().navigate(R.id.action_photosFragment_to_cartFragment)
-    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
