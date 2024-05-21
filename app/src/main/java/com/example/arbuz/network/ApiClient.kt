@@ -7,18 +7,14 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object ApiClient {
 
-    // Создание и настройка логирующего интерсептора
-    private val loggingInterceptor = HttpLoggingInterceptor().apply {
-        level = HttpLoggingInterceptor.Level.BODY
-    }
-
-    // Настройка OkHttpClient с логирующим интерсептором
-    private val client = OkHttpClient.Builder()
-        .addInterceptor(loggingInterceptor)
+    val client = OkHttpClient.Builder()
+        .addInterceptor(HttpLoggingInterceptor().apply {
+            level = HttpLoggingInterceptor.Level.BODY
+        })
         .build()
 
     private val retrofit = Retrofit.Builder()
-        .baseUrl("https://unsplash.com/")
+        .baseUrl("https://pixabay.com/")
         .addConverterFactory(GsonConverterFactory.create())
         .client(client)
         .build()

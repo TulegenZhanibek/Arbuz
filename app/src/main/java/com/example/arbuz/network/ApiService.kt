@@ -1,14 +1,13 @@
 package com.example.arbuz.network
 
-import com.example.arbuz.entity.Photo
+import com.example.arbuz.entity.PixabayResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface ApiService {
-    @GET("/photos/random")
-    suspend fun getRandomPhoto(
-        @Query("client_id") clientId: String,
-        @Query("page") page: Int,
-        @Query("per_page") perPage: Int
-    ): List<Photo>
+    @GET("/api/")
+    suspend fun getPhotos(
+        @Query("key") apiKey: String,
+        @Query("image_type") imageType: String = "photo"
+    ): PixabayResponse
 }

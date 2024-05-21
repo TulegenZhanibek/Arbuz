@@ -24,11 +24,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="80dp"
-        android:layout_toEndOf="@+id/search_photos"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/search_photos"
         tools:context=".activity.MainActivity" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
