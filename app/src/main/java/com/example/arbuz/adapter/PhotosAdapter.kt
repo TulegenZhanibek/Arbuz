@@ -23,8 +23,10 @@ class PhotosAdapter : ListAdapter<Photo, PhotosAdapter.PhotoViewHolder>(PhotosDi
 
     override fun onBindViewHolder(holder: PhotoViewHolder, position: Int) {
         val photo = getItem(position)
-        Glide.with(holder.imageView.context)
-            .load(photo.urls.small)
-            .into(holder.imageView)
+        photo.urls?.small?.let { url ->
+            Glide.with(holder.imageView.context)
+                .load(url)
+                .into(holder.imageView)
+        }
     }
 }
