@@ -4,6 +4,41 @@
     android:layout_height="wrap_content"
     android:padding="16dp">
 
+    <TextView
+        android:id="@+id/textView_decimal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="20dp"
+        android:textSize="20sp"
+        android:layout_toStartOf="@+id/textView_minus"
+        android:text="1" />
+
+    <TextView
+        android:id="@+id/textView_plus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="20dp"
+        android:textSize="20sp"
+        android:layout_toStartOf="@+id/textView_decimal"
+        android:textColor="@color/green"
+        android:text="+" />
+
+    <TextView
+        android:id="@+id/textView_minus"
+        android:textColor="@color/red"
+        android:layout_width="14sp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="35dp"
+        android:text="-"
+        android:textSize="25sp" />
+
     <ImageView
         android:id="@+id/image_view_photo"
         android:layout_width="100dp"
@@ -44,15 +79,4 @@
         android:textColor="@color/black"
         android:text="Views"
         android:textSize="14sp"/>
-
-    <ImageButton
-        android:id="@+id/add_in_cart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/baseline_add_shopping_cart_24"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="35dp"
-        android:layout_marginEnd="50dp" />
-
 </RelativeLayout>

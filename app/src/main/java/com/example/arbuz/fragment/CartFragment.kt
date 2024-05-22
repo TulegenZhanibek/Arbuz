@@ -5,15 +5,43 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.arbuz.R
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.arbuz.adapter.CartAdapter
+import com.example.arbuz.databinding.FragmentCartBinding
+import com.example.arbuz.model.SharedViewModel
 
 class CartFragment : Fragment() {
+    private lateinit var viewModel: SharedViewModel
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var cartAdapter: CartAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cart, container, false)
+        val binding = FragmentCartBinding.inflate(inflater, container, false)
+        val view = binding.root
+
+        viewModel = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
+
+        recyclerView = binding.recyclerViewCart
+        setupRecyclerView()
+
+        viewModel.selectedPhotos.observe(viewLifecycleOwner, { photos ->
+            cartAdapter.submitList(photos.toList())
+            binding.progressBarPopular.visibility = View.GONE
+        })
+
+        return view
+    }
+
+    private fun setupRecyclerView() {
+        cartAdapter = CartAdapter(viewModel)
+        recyclerView.apply {
+            layoutManager = LinearLayoutManager(context)
+            adapter = cartAdapter
+        }
     }
 }
